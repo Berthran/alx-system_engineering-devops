@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times
+SCHOOL="Best School" # local variable to hold text
+i=10 # intializing counter
+until [ $i -eq 0 ]; # command to run
+do echo "$SCHOOL" & i=$((i-1)); # consequent commands to be run 
+done
