@@ -5,14 +5,14 @@
 str="Best School"
 str_4="bad luck"
 str_8="good luck"
-i=0
+i=1
 
-while [ $i -lt 10 ];
+while [ $i -lt 11 ]
 do
-	if [ $i == 3 ]
+	if [ $i == 4 ]
 	then
 		echo "$str_4" & i=$((i+1))
-	elif [ $i == 7 ]
+	elif [ $i == 8 ]
 	then
 		echo "$str_8" & i=$((i+1))
 	else
