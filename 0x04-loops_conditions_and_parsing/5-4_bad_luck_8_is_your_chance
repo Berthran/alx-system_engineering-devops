@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# This script loops from 1 to 10 and displays bad luck
+# for the 4th iteration, good luck for the 8th and Best School for others
+
+str="Best School"
+str_4="bad luck"
+str_8="good luck"
+i=0
+
+while [ $i -lt 10 ];
+do
+	if [ $i == 3 ]
+	then
+		echo "$str_4" & i=$((i+1))
+	elif [ $i == 7 ]
+	then
+		echo "$str_8" & i=$((i+1))
+	else
+		echo "$str" & i=$((i+1))
+	fi
+done
+		
