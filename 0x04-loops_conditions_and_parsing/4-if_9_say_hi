@@ -4,7 +4,7 @@
 SCHOOL="Best School"; # local variable to hold text
 i=0; # intializing counter
 
-while [ $i -lt 10 ]
+while ((i<10))
 do
 	if [ $i -eq 8 ]
 	then
