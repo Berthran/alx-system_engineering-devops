@@ -12,7 +12,7 @@ while ((i<101))
 do
 	if [ $((i%3)) -eq 0 ] && [ $((i%5)) -eq 0 ]
 	then
-		echo "Fizzbuzz"
+		echo "FizzBuzz"
 	elif [ $((i%3)) == 0 ]
 	then 
 		echo "Fizz"
