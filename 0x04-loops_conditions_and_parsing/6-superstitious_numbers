@@ -9,25 +9,17 @@ i=1
 
 while [ $i -lt 21 ]
 do
+	echo "$i"
 	case $i in
 		4)
-			echo "$i"
 			echo "$str_4"
-			i=$((i+1))
 			;;
 		9)
-			echo "$i"
 			echo "$str_9"
-			i=$((i+1))
 			;;
 		17)
-			echo "$i"
 			echo "$str_17"
-			i=$((i+1))
-			;;
-		*)
-			echo "$i"
-			i=$((i+1))
 			;;
 	esac
+	i=$((i+1))
 done
