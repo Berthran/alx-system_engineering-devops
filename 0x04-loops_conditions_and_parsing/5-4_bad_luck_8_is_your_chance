@@ -17,6 +17,6 @@ do
 		echo "$str_8" & i=$((i+1))
 	else
 		echo "$str" & i=$((i+1))
-	fi
+	fi;
 done
 		
