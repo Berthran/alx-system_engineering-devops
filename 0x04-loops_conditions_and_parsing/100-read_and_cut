@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This script the username, user id and user home directory
+# path of the file /etc/passwd
+
+FILES="$(/etc/passwd)"
+
+for file in $FILES
+do
+	echo "$file" | cut -d ":" -f 2
+done
