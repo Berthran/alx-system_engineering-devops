@@ -4,12 +4,13 @@
 SCHOOL="Best School"; # local variable to hold text
 i=0; # intializing counter
 
-while ((i<10))
+while [ $i -lt 10 ]
 do
-	if [ $i -eq 8 ]
+	echo "$SCHOOL"
+	i=$((i+1))
+	if [ $i -eq 9 ]
 	then
-		echo "$SCHOOL" & echo "Hi" & i=$((i+1))
-	else
-		echo "$SCHOOL" & i=$((i+1)); 
+		echo "$SCHOOL"
+		echo "Hi"
 	fi
 done
