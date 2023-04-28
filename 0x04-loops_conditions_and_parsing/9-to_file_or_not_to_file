@@ -11,7 +11,7 @@ then
 	then
 		echo "$file file is empty"
 	else
-		echo "$file is not empty"
+		echo "$file file is not empty"
 	fi
 	if [ -f $file ]
 	then 
