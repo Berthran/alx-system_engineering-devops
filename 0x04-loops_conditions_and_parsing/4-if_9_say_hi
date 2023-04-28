@@ -8,9 +8,9 @@ while [ $i -lt 10 ]
 do
 	echo "$SCHOOL"
 	i=$((i+1))
+
 	if [ $i -eq 9 ]
 	then
-		echo "$SCHOOL"
 		echo "Hi"
 	fi
 done
