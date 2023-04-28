@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 # This script is displaying "Best School" 10 times
-SCHOOL="Best School" # local variable to hold text
-i=0 # intializing counter
-while [ $i -lt 10 ]; do
+
+SCHOOL="Best School"; # local variable to hold text
+i=0; # intializing counter
+
+while [ $i -lt 10 ]
+do
 	if [ $i -eq 8 ]
 	then
 		echo "$SCHOOL" & echo "Hi" & i=$((i+1))
