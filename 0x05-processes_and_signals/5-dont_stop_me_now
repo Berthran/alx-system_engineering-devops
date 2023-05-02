@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This script stops the process   4-to_infinity_and_beyond from running
+
+pid=$(pidof -x bash ./4-infinity_and_beyond | awk '{print$3}')
+kill -9 "$pid"
