@@ -2,4 +2,4 @@
 # This script shows a list of processes currently
 # running
 #ps -uH
-ps -ue --forest
+ps -aux  --forest
