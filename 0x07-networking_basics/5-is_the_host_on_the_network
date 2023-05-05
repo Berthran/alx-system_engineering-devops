@@ -3,7 +3,6 @@
 if [ $# -eq 1 ]
 then
 	ping -c5 "$1"
-	echo "Pinging ..."
 else
 	echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
 fi
