@@ -4,5 +4,4 @@ Host 100.25.162.106
     HostName 100.25.162.106
     User ubuntu
     IdentifyFile ~/.ssh/school
-    PasswordAuthentication no
 # IdentitiesOnly yes [NOT WORKING FOR SSH KEY WITH PASSPHRASE]
