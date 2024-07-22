@@ -1,0 +1,7 @@
+# This is the ssh-configuration file for the ubuntu@195935-web-01 server.
+
+Host 100.25.162.106
+    HostName 100.25.162.106
+    User ubuntu
+    IdentifyFile ~/.ssh/school
+    IdentitiesOnly yes
