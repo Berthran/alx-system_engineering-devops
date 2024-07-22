@@ -1,0 +1,29 @@
+# Change configurations of ssh client
+# Modify /etc/ssh/ssh_config file
+#
+# Add a public key to server
+# ssh-add -f -i ~/.ssh/keyname.pub username@hostname
+#
+# Add a private key to ssh-agent
+# ssh-add ~/.ssh/keyname
+#
+# Remove a private key from ssh-agent
+# ssh-add -d ~/.ssh/keyname
+#
+# Remove all keys from ssh-agent
+# ssh-add -D
+#
+# View the public key of a private key
+# ssh-keygen -y -f ~/.ssh/keyname
+#
+# View keys in ssh-agent
+# ssh-add -l
+#
+#
+# To connect to a server, the public key must exist in the server's ~/.ssh/authorised-keys file.
+#
+# To connect to a server using a private key with a passphrase
+# 1. Add private key to ssh-agent to avoid the server requesting for the passphrase
+# 2. Not adding the private key to ssh-agent means you'd be required to provide the passphrase to the server
+#
+#

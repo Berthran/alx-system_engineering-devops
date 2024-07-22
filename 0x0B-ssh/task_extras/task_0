@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Define variables
+USER="ubuntu"
+HOST="100.25.162.106"
+KEY_PATH="$HOME/.ssh/school"
+
+# Check if the private key exists
+if [[ ! -f "$KEY_PATH" ]]; then
+  echo "Private key not found at $KEY_PATH"
+  exit 1
+fi
+
+# Add the private key to the SSH agent (prompt for passphrase if needed)
+eval "$(ssh-agent -s)"
+ssh-add "$KEY_PATH"
+
+# Check if the key was added successfully
+if [[ $? -ne 0 ]]; then
+  echo "Failed to add the private key to the SSH agent"
+  exit 1
+fi
+
+# Connect to the server
+ssh -i "$KEY_PATH" "$USER@$HOST"
+
+# Cleanup: kill the ssh-agent process
+ssh-agent -k
+

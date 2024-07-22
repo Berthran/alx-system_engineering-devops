@@ -1,0 +1,15 @@
+# Display key type, number of bits and fingerprint
+ssh-keygen -lf school
+
+# This command will output something like
+# `4096` is the number of bits
+# `RSA` is the key type
+# `SHA256:WlEG1kW is the fingerprint of the key
+# To see a visual ascii representation of the fingerprint use 
+# ssh-keygen -v -lf school
+#
+
+# Check if RSA key has passphrase
+ssh-keygen -y -f school
+# The "-y" option will read a private OpenSSH format file and
+# print an OpenSSH public key to stdout.
