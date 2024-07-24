@@ -8,9 +8,6 @@ ARCHIVE_FILE="${DATE}.tar.gz"
 
 mysqldump -uroot -p"$1" -A > $DUMP_FILE
 
-# Check if the dump was successfully created
-if [ $? -eq 0 ]; then
-	tar -czvf $ARCHIVE_FILE $DUMP_FILE
-fi
+tar -czvf $ARCHIVE_FILE $DUMP_FILE
 
 
