@@ -11,8 +11,6 @@ mysqldump -uroot -p"$1" -A > $DUMP_FILE
 # Check if the dump was successfully created
 if [ $? -eq 0 ]; then
 	tar -czvf $ARCHIVE_FILE $DUMP_FILE
-	exit 0
 fi
 
-exit 1
 
