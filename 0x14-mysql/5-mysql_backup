@@ -7,13 +7,11 @@ if [ "$#" -ne 1 ]; then
 	exit 1
 fi
 
-MYSQL_USER="root"
-DATABASES=$(mysql -u $MYSQL_USER -p"$1" -e "SHOW DATABASES;" | grep -Ev '^(Database|information_schema|mysql|performance_schema|sys)')
 DUMP_FILE="backup.sql"
 DATE=$(date +%d-%m-%Y)
 ARCHIVE_FILE="${DATE}.tar.gz"
 
-mysqldump -u $MYSQL_USER -p"$1" $DATABASES > $DUMP_FILE
+mysqldump -uroot -p"$1" --all-databases > $DUMP_FILE
 
 # Check if the dump was successfully created
 if [ $? -eq 0 ]; then
