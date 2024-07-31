@@ -10,39 +10,49 @@ import requests
 # Import the sys module to access the command line arguments
 import sys
 
-# Accept ID parameter from the command line and store it in a variable
-employee_id = sys.argv[1]
 
-# Define the endpoint for the API
-endpoint_user = 'users'
-endpoint_todos = 'todos'
+def gather_data():
+    # Accept ID parameter from the command line and store it in a variable
+    if (sys.argv != 2):
+        print("Usage: {} employee_id".format(sys.argv[0]))
+        sys.exit(1)
+    else:
+        employee_id = sys.argv[1]
 
-# Define the base URL for the API
-base_url = 'https://jsonplaceholder.typicode.com/'
+    # Define the endpoint for the API
+    endpoint_user = 'users'
+    endpoint_todos = 'todos'
 
-# Define the URL for the user endpoint
-url = '{}{}/{}'.format(base_url, endpoint_user, employee_id)
-# Define the URL for the todos endpoint
-url_todos = '{}{}'.format(base_url, endpoint_todos)
+    # Define the base URL for the API
+    base_url = 'https://jsonplaceholder.typicode.com/'
 
-# Make a GET request to the API
-user_response = requests.get(url)
-todos_response = requests.get(url_todos)
+    # Define the URL for the user endpoint
+    url = '{}{}/{}'.format(base_url, endpoint_user, employee_id)
+    # Define the URL for the todos endpoint
+    url_todos = '{}{}'.format(base_url, endpoint_todos)
 
-# Store the response in a variable
-employee = user_response.json()
-name = employee.get('name')
-todos = todos_response.json()
-completedTasks = 0
-totalTasks = 0
-tasksCompleted = []
+    # Make a GET request to the API
+    user_response = requests.get(url)
+    todos_response = requests.get(url_todos)
 
-for task in todos:
-    if task.get('userId') == int(employee_id):
-        totalTasks += 1
-        if task.get('completed'):
-            completedTasks += 1
-            tasksCompleted.append(task.get('title'))
+    # Store the response in a variable
+    employee = user_response.json()
+    name = employee.get('name')
+    todos = todos_response.json()
+    completedTasks = 0
+    totTasks = 0
+    tasksCompleted = []
 
-print(f"Employee {name} is done with tasks({completedTasks}/{totalTasks}):")
-print("\n".join("\t {}".format(task) for task in tasksCompleted))
+    for task in todos:
+        if task.get('userId') == int(employee_id):
+            totTasks += 1
+            if task.get('completed'):
+                completedTasks += 1
+                tasksCompleted.append(task.get('title'))
+
+    print(f"Employee {name} is done with tasks({completedTasks}/{totTasks}):")
+    print("\n".join("\t {}".format(task) for task in tasksCompleted))
+
+
+if __name__ == "__main__":
+    pass
