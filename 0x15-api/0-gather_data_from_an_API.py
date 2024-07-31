@@ -9,8 +9,12 @@ import sys
 
 
 def gather_data():
+    '''
+    Function that returns information about an employee using
+    the REST API
+    '''
     # Accept ID parameter from the command line and store it in a variable
-    if (sys.argv != 2):
+    if (len(sys.argv) != 2):
         print("Usage: {} employee_id".format(sys.argv[0]))
         sys.exit(1)
     else:
@@ -52,4 +56,4 @@ def gather_data():
 
 
 if __name__ == "__main__":
-    pass
+    gather_data()
