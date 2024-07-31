@@ -4,10 +4,7 @@ Write a script that returns information about an employee using
 this [REST API]('https://jsonplaceholder.typicode.com/')
 """
 
-import urllib.request
 import requests
-
-# Import the sys module to access the command line arguments
 import sys
 
 
