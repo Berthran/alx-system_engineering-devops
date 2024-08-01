@@ -4,6 +4,7 @@ Write a script that returns information about an employee using
 this [REST API]('https://jsonplaceholder.typicode.com/')
 """
 
+import csv
 import requests
 import sys
 
@@ -44,13 +45,25 @@ def gather_data():
 
     for task in todos:
         if task.get('userId') == int(employee_id):
+            # Add the username to the allTasks list
+            task['username'] = name
             allTasks.append(task)
 
+    # String formatting to write to a CSV file
+    # with open('{}.csv'.format(employee_id), 'w') as file:
+    #     for task in allTasks:
+    #         file.write('"{}","{}","{}","{}"\n'.format(employee_id, name,
+    #                                                   task.get('completed'),
+    #                                                   task.get('title')))
+
+    # Write to a CSV file using the csv module
     with open('{}.csv'.format(employee_id), 'w') as file:
-        for task in allTasks:
-            file.write('"{}","{}","{}","{}"\n'.format(employee_id, name,
-                                                      task.get('completed'),
-                                                      task.get('title')))
+        fieldnames = ["userId", "username", "completed", "title"]
+        writer = csv.DictWriter(file, fieldnames=fieldnames,
+                                extrasaction='ignore', quoting=csv.QUOTE_ALL)
+        # extrasaction='ignore' will ignore any extra keys in the dictionary
+        # quoting=csv.QUOTE_ALL will quote all fields with double quotes
+        writer.writerows(allTasks)
 
 
 if __name__ == "__main__":
