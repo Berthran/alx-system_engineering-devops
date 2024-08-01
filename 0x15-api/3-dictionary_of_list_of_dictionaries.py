@@ -45,10 +45,10 @@ def gather_data():
             filterKeys = ["task", "completed", "username"]
             task = {key: task[key] for key in filterKeys}
             employeeTasks.append(task)
-        allEmployeesTasks[employeeName] = employeeTasks
+        allEmployeesTasks[employeeId] = employeeTasks
 
     with open("todo_all_employees.json", 'w') as file:
-        jsonObj = json.dumps({str(employeeId): allEmployeesTasks})
+        jsonObj = json.dumps(allEmployeesTasks)
         file.write(jsonObj)
 
 
