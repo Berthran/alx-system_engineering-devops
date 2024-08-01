@@ -42,7 +42,7 @@ def gather_data():
         for task in todos:
             task['task'] = task['title']
             task['username'] = employeeName
-            filterKeys = ["task", "completed", "username"]
+            filterKeys = ["username", "task", "completed"]
             task = {key: task[key] for key in filterKeys}
             employeeTasks.append(task)
         allEmployeesTasks[employeeId] = employeeTasks
