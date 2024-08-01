@@ -33,7 +33,6 @@ def gather_data():
     # Store the response in a variable
     employees = user_response.json()
     todos = todos_response.json()
-    print(len(todos))
     allEmployeesTasks = {}
 
     for employee in employees:
