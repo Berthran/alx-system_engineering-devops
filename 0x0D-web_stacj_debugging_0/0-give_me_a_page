@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+docker exec -it 47ca3994a491 /bin/sh
+apt-get update
+apt-get install -y apache2
+service apache2 start
+
+docker run -d -p 8080:80 --name vigilant_tesla  holbertonschool/265-0
