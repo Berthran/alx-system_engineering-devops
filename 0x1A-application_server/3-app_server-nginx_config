@@ -12,6 +12,13 @@ server {
 
     }
 
+    # Location block for proxying requests to Gunicorn
+    location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
+        # Rewrite the URI to remove the prefix before passing it to Gunicorn
+        rewrite ^/airbnb-dynamic/number_odd_or_even/(.*)$ /number_odd_or_even/$1 break;
+        proxy_pass http://127.0.0.1:5001;
+    }
+
     # Optional: Handle 404 errors or other specific needs
     location / {
         try_files $uri $uri/ =404;  # Serve files or return 404 if not found
