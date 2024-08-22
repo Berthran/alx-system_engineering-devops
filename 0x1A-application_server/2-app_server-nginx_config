@@ -1,19 +1,11 @@
 server {
-    listen 80; # Listen on port 80 for HTTP requests
+    # Listen on port 80 for HTTP requests
+    listen 80;
     server_name localhost 127.0.0.1;
 
     # Location block for proxying requests to Gunicorn
     location /airbnb-onepage/ {
-        proxy_pass http://127.0.0.1:5000;  # Forward requests to Gunicorn server
-        proxy_set_header Host $host;  # Pass the original Host header
-        proxy_set_header X-Real-IP $remote_addr;  # Pass the client's IP address
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;  # Pass the forwarded IP addresses
-        proxy_set_header X-Forwarded-Proto $scheme;  # Pass the original protocol (HTTP or HTTPS)
-
-    }
-
-    # Optional: Handle 404 errors or other specific needs
-    location / {
-        try_files $uri $uri/ =404;  # Serve files or return 404 if not found
+        # Forward requests to Gunicorn server
+        proxy_pass http://127.0.0.1:5000;
     }
 }
