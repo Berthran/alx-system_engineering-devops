@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Define the Gunicorn process ID (PID) file location
 PIDFILE="/path/to/gunicorn.pid"
