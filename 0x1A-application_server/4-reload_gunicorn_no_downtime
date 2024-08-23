@@ -10,7 +10,6 @@ if [[ -f "$PIDFILE" ]]; then
     # Send the HUP signal to the Gunicorn master process to reload
     kill -HUP "$(cat "$PIDFILE")"
 
-    echo "Gunicorn reloaded gracefully."
 else
     echo "Gunicorn PID file not found. Is Gunicorn running?"
 fi
