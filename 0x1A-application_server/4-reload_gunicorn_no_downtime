@@ -3,12 +3,12 @@
 # Define the Gunicorn process ID (PID) file location
 PIDFILE="/path/to/gunicorn.pid"
 
-# Check if Gunicorn is running
-if [ -f "$PIDFILE" ]; then
+# Check if Gunicorn is running by verifying if the PID file exists
+if [[ -f "$PIDFILE" ]]; then
     echo "Reloading Gunicorn..."
 
     # Send the HUP signal to the Gunicorn master process to reload
-    kill -HUP $(cat $PIDFILE)
+    kill -HUP "$(cat "$PIDFILE")"
 
     echo "Gunicorn reloaded gracefully."
 else
