@@ -2,12 +2,12 @@
 
 file_line { 'increase-soft-file-limit-for-holberton-user':
   path  => '/etc/security/limits.conf',
-  line  => 'holberton soft nofile 50000',
-  match => '^holberton soft',
+  line  => 'holberton soft 50000',
+  match => '^holberton soft 4',
 }
 
 file_line { 'increase-hard-file-limit-for-holberton-user':
   path  => '/etc/security/limits.conf',
-  line  => 'holberton hard nofile 50000',
-  match => '^holberton hard',
+  line  => 'holberton hard 50000',
+  match => '^holberton hard 5',
 }
