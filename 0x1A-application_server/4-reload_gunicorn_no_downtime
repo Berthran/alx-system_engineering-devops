@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Define the Gunicorn process ID (PID) file location
-PIDFILE="/path/to/gunicorn.pid"
+PIDFILE="/var/run/gunicorn.pid"
 
 # Check if Gunicorn is running by verifying if the PID file exists
 if [[ -f "$PIDFILE" ]]; then
