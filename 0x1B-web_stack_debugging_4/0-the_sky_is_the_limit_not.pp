@@ -3,11 +3,12 @@
 # Command: ulimit -n
 
 # Define an exec resource to update Nginx configuration for handling more connections
-exec { 'fix--for-nginx':
+exec { 'increase-ulimit-for-nginx':
 
   # The command to run: use 'sed' to search and replace '15' with '4096'
   # in the /etc/default/nginx file. This file likely contains configuration settings
   # related to file descriptor limits. The change increases the limit from 15 to 4096.
+
   command => 'sed -i "s/15/4096/" /etc/default/nginx',
 
   # Specify the directories to search for the 'sed' command.
@@ -15,8 +16,8 @@ exec { 'fix--for-nginx':
   path    => '/usr/local/bin/:/bin/'
 }
 
-# Define an exec resource named 'nginx-restart' to restart the Nginx service
-exec { 'nginx-restart':
+# Define an exec resource named 'restart-nginx' to restart the Nginx service
+exec { 'restart-nginx':
 
   # Command to execute:
   # Restart the Nginx service to apply the new configuration changes
